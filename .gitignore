@@ -5,7 +5,7 @@ staticfiles/assets
 
 userprofile/migrations
 home/migrations
-static/assets
+
 
 .DS_Store
 .py[cod]

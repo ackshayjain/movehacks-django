@@ -9,6 +9,7 @@ import numpy as np
 from time import time
 from IPython.display import display
 from matplotlib import pyplot as plt
+
 data = pd.read_csv("data.csv")
 display(data.head(n=5))
 

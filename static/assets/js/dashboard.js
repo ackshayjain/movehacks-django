@@ -1,3 +1,4 @@
+
 ( function ( $ ) {
     "use strict";
 
@@ -13,7 +14,7 @@ function convertHex (hex, opacity) {
   const g = parseInt(hex.substring(2, 4), 16)
   const b = parseInt(hex.substring(4, 6), 16)
 
-  const result = 'rgba(' + r + ',' + g + ',' + b + ',' + opacity / 100 + ')'
+  const result = 'rgba(' + r + ',' + g +  ',' + b + ',' + opacity / 100 + ')'
   return result
 }
 
@@ -27,7 +28,7 @@ function random (min, max) {
     var data3 = []
 
     for (var i = 0; i <= elements; i++) {
-      data1.push(random(50, 200))
+      data1.push(random(0, 200))
       data2.push(random(80, 100))
       data3.push(65)
     }
@@ -42,7 +43,7 @@ function random (min, max) {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S'],
             datasets: [
             {
-              label: 'My First dataset',
+              label: 'TIMEZONE 1',
               backgroundColor: convertHex(brandInfo, 10),
               borderColor: brandInfo,
               pointHoverBackgroundColor: '#fff',
@@ -50,7 +51,7 @@ function random (min, max) {
               data: data1
           },
           {
-              label: 'My Second dataset',
+              label: 'LOLOLO',
               backgroundColor: 'transparent',
               borderColor: brandSuccess,
               pointHoverBackgroundColor: '#fff',

@@ -125,7 +125,7 @@
                     <div class="card-body pb-0">
                         
                         <h4 class="mb-0">
-                            <span class="count">120000</span>
+                            <span class="count">{{yolo}}</span>
                         </h4>
                         <p class="text-light">DataSet Rows</p>
 
@@ -208,12 +208,15 @@
                                         <label class="btn btn-outline-secondary">
                                             <input type="radio" name="options" id="option1"> Day
                                         </label>
+
                                         <label class="btn btn-outline-secondary active">
                                             <input type="radio" name="options" id="option2" checked=""> Month
                                         </label>
+
                                         <label class="btn btn-outline-secondary">
                                             <input type="radio" name="options" id="option3"> Year
                                         </label>
+                                        
                                     </div>
                                 </div>
                             </div><!--/.col-->
@@ -223,6 +226,7 @@
                         <div class="chart-wrapper mt-4" >
                             <canvas id="trafficChart" style="height:200px;" height="200"></canvas>
                         </div>
+
 
                     </div>
                     <div class="card-footer">
@@ -266,8 +270,44 @@
                     </div>
                 </div>
             </div>
+            <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Yearly Sales </h4>
+                                    <canvas id="sales-chart"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
 
-           <div class="col-xl-3 col-lg-6">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Team Commits </h4>
+                                    <canvas id="team-chart"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
+                        
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Pie Chart </h4>
+                                    <canvas id="pieChart"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Polar Chart </h4>
+                                    <canvas id="polarChart"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
+
+
+
+           <!-- <div class="col-xl-3 col-lg-6">
                 <section class="card">
                     <div class="twt-feed blue-bg">
                         <div class="corner-ribon black-ribon">
@@ -288,7 +328,7 @@
                    
                 
                 </section>
-            </div>
+            </div> -->
 
 
             <div class="col-xl-3 col-lg-6">
@@ -347,7 +387,12 @@
 
 
     <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/lib/chart-js/Chart.bundle.js"></script>
-    <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/dashboard.js"></script>
+
+
+    <script src="{% static 'assets/js/dashboard.js' %}"></script>
+    <script src="{% static 'assets/js/lib/chart-js/Chart.bundle.js' %}"></script>
+    <script src="{% static 'assets/js/lib/chart-js/chartjs-init.js' %}"></script>
+
     <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/widgets.js"></script>
     <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/lib/vector-map/jquery.vmap.js"></script>
     <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/lib/vector-map/jquery.vmap.min.js"></script>

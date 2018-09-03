@@ -11,18 +11,18 @@ from IPython.display import display
 from matplotlib import pyplot as plt
 
 data = pd.read_csv("data.csv")
-display(data.head(n=5))
+# display(data.head(n=5))
 
 
-# In[2]:
+# # In[2]:
 
 
-# Working with the target variable
+# # Working with the target variable
 y = data['Total']
-display(y.head(n=6))
+# display(y.head(n=6))
 
 
-# In[3]:
+# # In[3]:
 
 
 y.isnull().values.any()
@@ -32,7 +32,8 @@ y.isnull().values.any()
 
 
 X = data.drop(['Invoice No', 'User', 'Out Time', 'In Date', 'Out Date', 'Total', 'MGP-MGN'], axis = 1)
-display(X.head(n = 5))
+# display(X.head(n = 5))
+
 X['MGN-WBT'] = X['MGN-WBT'].fillna("0")
 X.shape
 #X["LDG/UNLDG-WBG"].isnull().values.any()
@@ -61,7 +62,7 @@ X['DOC-LDG/UNLDG'] = X['DOC-LDG/UNLDG'].apply(lambda x: g(str(x)))
 X['LDG/UNLDG-WBG'] = X['LDG/UNLDG-WBG'].apply(lambda x: g(str(x)))
 X['WBG-INV'] = X['WBG-INV'].apply(lambda x: g(str(x)))
 X['INV-MGX'] = X['INV-MGX'].apply(lambda x: g(str(x)))
-display(X.head(n=5))
+# display(X.head(n=5))
 X.shape
 
 
@@ -79,14 +80,14 @@ X['WBG-INV'] = X['WBG-INV'].apply(lambda x: x.split(':'))
 X['INV-MGX'] = X['INV-MGX'].apply(lambda x: x.split(':'))
 
 
-display(X.head(n=5))
+# display(X.head(n=5))
 
 
 # In[8]:
 
 
 X["In Time"] = X["In Time"].apply(lambda x: int(int(x[0])*60 + int(x[1])))
-display(X.head(n=5))
+# display(X.head(n=5))
 
 
 # In[9]:
@@ -112,7 +113,7 @@ X["INV-MGX"] = X["INV-MGX"].apply(lambda x: k(x))
 # In[10]:
 
 
-X.head(5)
+# X.head(5)
 
 
 # In[11]:
@@ -135,7 +136,7 @@ X["DOC-LDG/UNLDG"] = X["DOC-LDG/UNLDG"].fillna(mean_MGN_WBT)
 X["WBG-INV"] = X["WBG-INV"].fillna(mean_MGN_WBT)
 X["INV-MGX"] = X["INV-MGX"].fillna(mean_MGN_WBT)
 X["LDG/UNLDG-WBG"] = X["LDG/UNLDG-WBG"].fillna(mean_MGN_WBT)
-display(X.head(n=5))
+# display(X.head(n=5))
 
 
 # In[13]:
@@ -151,7 +152,7 @@ def j(x):
    else:
        return None
 y = y.apply(lambda x: j(x))
-y.head(5)
+# y.head(5)
 
 
 # In[14]:
@@ -179,7 +180,7 @@ pca.fit(X_final)
 
 
 var_ratio = pca.explained_variance_ratio_
-print(var_ratio)
+print("PCA RATIO IS ", var_ratio)
 
 
 # In[18]:
@@ -198,7 +199,7 @@ plt.show()
 plt.scatter(X['WBG-INV'], np.arange(X.shape[0]))
 plt.xlabel("WBG_INV")
 plt.ylabel("Samples")
-
+plt.show()
 
 # In[20]:
 
@@ -236,8 +237,8 @@ def pca_results(good_data, pca):
 # In[21]:
 
 
-pca_results = pca_results(X_new, pca)
-
+pca_resultss = pca_results(X_new, pca)
+print(pca_resultss)
 
 # In[22]:
 
@@ -251,6 +252,7 @@ truck_no_unique.shape
 
 
 plt.hist(truck_no_unique)
+plt.show()
 
 
 # In[24]:
@@ -266,7 +268,7 @@ def h(x):
         return 3
     if x>=1080 and x<1440:
         return 4
-X_new.head()
+# X_new.head()
 
 
 # In[25]:
@@ -279,7 +281,7 @@ X_new_zones["In Time"] = X_new["In Time"].apply(lambda x: h(x))
 # In[26]:
 
 
-X_new_zones.head()
+# X_new_zones.head()
 
 
 # In[27]:
@@ -289,7 +291,7 @@ X_new_zones_1 = X_new_zones
 X_new_zones_1 = X_new_zones_1.where(X_new_zones_1["In Time"]==1)
 X_new_zones_1 = X_new_zones_1.dropna()
 X_new_zones_1 = X_new_zones_1.drop("In Time", axis = 1)
-X_new_zones_1.head()
+# X_new_zones_1.head()
 
 
 # In[28]:
@@ -299,7 +301,7 @@ X_new_zones_2 = X_new_zones
 X_new_zones_2 = X_new_zones_2.where(X_new_zones_2["In Time"]==2)
 X_new_zones_2 = X_new_zones_2.dropna()
 X_new_zones_2 = X_new_zones_2.drop("In Time", axis = 1)
-X_new_zones_2.shape
+# X_new_zones_2.shape
 
 
 # In[29]:
@@ -309,7 +311,7 @@ X_new_zones_3 = X_new_zones
 X_new_zones_3 = X_new_zones_3.where(X_new_zones_3["In Time"]==3)
 X_new_zones_3 = X_new_zones_3.dropna()
 X_new_zones_3 = X_new_zones_3.drop("In Time", axis = 1)
-X_new_zones_3.shape
+# X_new_zones_3.shape
 
 
 # In[30]:
@@ -319,7 +321,7 @@ X_new_zones_4 = X_new_zones
 X_new_zones_4 = X_new_zones_4.where(X_new_zones_4["In Time"]==4)
 X_new_zones_4 = X_new_zones_4.dropna()
 X_new_zones_4 = X_new_zones_4.drop("In Time", axis = 1)
-X_new_zones_4.shape
+# X_new_zones_4.shape
 
 
 # In[31]:
@@ -378,14 +380,15 @@ def pca_results(good_data, pca):
 # In[33]:
 
 
-pca_results(X_new_zones_1, pca_zone_1)
+pca_results1 = pca_results(X_new_zones_1, pca_zone_1)
+print(pca_results1)
 
 
 # In[34]:
 
 
-pca_results(X_new_zones_2, pca_zone_2)
-
+pca_results2 = pca_results(X_new_zones_2, pca_zone_2)
+print(pca_results2)
 
 # In[35]:
 
@@ -499,6 +502,6 @@ reg2 = RandomForestRegressor()
 reg2.fit(X_train, y_train)
 pred2 = reg2.predict(X_test)
 mean_absolute_error(y_test, pred2)
-print (y_test)
-print (pred2)
+print ("Y TEST ",y_test)
+print ("PREDICTION", pred2)
 

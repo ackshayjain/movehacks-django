@@ -1,5 +1,6 @@
 db.sqlite3
 cargoclear/db.sqlite3
+static/assets
 
 
 userprofile/migrations

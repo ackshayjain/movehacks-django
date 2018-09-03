@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect
 import pandas as pd
 import numpy as np
 from time import time
-from IPython.display import display
-from matplotlib import pyplot as plt
+
 
 
 
@@ -87,6 +86,7 @@ def ML():
 	y = y.apply(lambda x: j(x))
 
 	X_new = X.drop(['Truck No', 'Gate Entry No'], axis = 1)
+	# print("X is ", X_new)
 
 
 	from sklearn.decomposition import PCA
@@ -97,20 +97,14 @@ def ML():
 	pca.fit(X_final)
 
 	var_ratio = pca.explained_variance_ratio_
-	print("PCA RATIO IS ", var_ratio)
+
+	# print("PCA RATIO IS ", var_ratio)
 
 	sizes = var_ratio
-	# fig1, ax1 = plt.subplots()
-	# ax1.pie(sizes, labels = np.arange(7))
-	# plt.show()
-
-	# plt.scatter(X['WBG-INV'], np.arange(X.shape[0]))
-	# plt.xlabel("WBG_INV")
-	# plt.ylabel("Samples")
-	# plt.show()
 
 	truck_no_unique = X["Truck No"].value_counts()
-	print(truck_no_unique)
+
+	# print(truck_no_unique)
 
 
 
@@ -177,52 +171,52 @@ def ML():
 		variance_ratios = pd.DataFrame(np.round(ratios, 4), columns = ['Explained Variance'])
 		variance_ratios.index = dimensions
 
-		# Create a bar plot visualization
-		fig, ax = plt.subplots(figsize = (14,8))
-
-		# Plot the feature weights as a function of the components
-		components.plot(ax = ax, kind = 'bar');
-		ax.set_ylabel("Feature Weights")
-		ax.set_xticklabels(dimensions, rotation=0)
-
-
-		# Display the explained variance ratios
-		for i, ev in enumerate(pca.explained_variance_ratio_):
-			ax.text(i-0.40, ax.get_ylim()[1] + 0.05, "Explained Variance\n          %.4f"%(ev))
+		
 
 		# Return a concatenated DataFrame
 		return pd.concat([variance_ratios, components], axis = 1)
 
 
+
 	pca_results1 = pca_results(X_new_zones_1, pca_zone_1)
-	print(pca_results1)
+	print("RESULTS 1 ",pca_results1)
 
 
 	pca_results2 = pca_results(X_new_zones_2, pca_zone_2)
-	print(pca_results2)
+	print("RESULTS 2 ",pca_results2)
 
 	pca_results(X_new_zones_3, pca_zone_3)
 
 	pca_results(X_new_zones_4, pca_zone_4)
 
+
+	# print("XXXX", X)
 	X_with_date = X
 	X_with_date["In Date"] = data['In Date']
 
 
 	y_with_date= X_with_date
 	y_with_date = y_with_date["In Date"]
-	y_with_date.head()
+
 	y_with_date_new = y_with_date.value_counts()
+	# print("Y WITH DATE", y_with_date_new)
 
 
 
 	y_with_date_new = X_with_date.drop(['Gate Entry No', 'Truck No', 'In Time', 'MGN-WBT', 'WBT-DOC', 'DOC-LDG/UNLDG', 'LDG/UNLDG-WBG','WBG-INV', 'INV-MGX'], axis = 1)
 
 	y_with_date_new['In Date'].value_counts()
+
+	
+
+
 	y_un_dates = y_with_date_new['In Date'].unique()
+	# print("Y WITH DATE NEW", y_un_dates)
+
 	s1 = pd.Series(y_un_dates, name = 'Date')
 	s2 = [162, 180, 147, 132, 125, 142, 146, 151, 162, 82, 108, 160, 136, 147, 129]
 	data_date = pd.DataFrame({'Date' :  s1, 'Trucks' : s2})
+
 
 	import datetime
 	datetime.date(year = 2018, month = 6, day = 1).weekday()
@@ -240,8 +234,13 @@ def ML():
 
 	y_with_date = data_date['Trucks']
 
+
+	# print("Y IS ",y_with_date)
+
 	X_date_final = data_date
 	X_date_final = X_date_final.drop(['Trucks', 'Date'], axis = 1)
+
+	# print("X IS ", X_date_final)
 
 	from sklearn.model_selection import train_test_split
 	from sklearn.tree import DecisionTreeRegressor
@@ -259,19 +258,42 @@ def ML():
 	reg2.fit(X_train, y_train)
 	pred2 = reg2.predict(X_test)
 	mean_absolute_error(y_test, pred2)
+
+	print ("X TEST ",X_test)
 	print ("Y TEST ",y_test)
 	print ("PREDICTION", pred2)
 
-	return truck_no_unique
+	return truck_no_unique,var_ratio, X_date_final,y_with_date
 
 
 
 
 def index(request):
 
-	# trucks = ML()
+	trucks,ratio,truck_date,truck_freq = ML()
 
-	# yolo = trucks['GJ']
-	# context = {'trucks':trucks, 'yolo':yolo}
+	state = []
+	num = []
+	for k,v in trucks.items():
+		state.append(k)
+		num.append(v)
 
-	return render(request, 'index.html')
+	print(state)
+	print(num)
+
+	truck_day = truck_date['Day'].values.tolist()
+	truck_month = truck_date['Month'].values.tolist()
+	truck_freq = truck_freq.values.tolist()
+
+	print(truck_day)
+	print(truck_month)
+	print(truck_freq)
+
+	week1=[162,20,34,45,56,45,150]
+	week2=[32,120,4,456,56,445,150]
+	week3=[62,250,4,145,56,456,150]
+	week4=[62,230,304,345,506,45,150]
+
+	context = {'states':state[:8], 'states_num':num[:8], 'ratio':ratio, 'week1':week1, 'week2':week1, 'week3':week1, 'week4':week1}
+
+	return render(request, 'index.html',context)

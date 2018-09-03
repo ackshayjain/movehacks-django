@@ -26,9 +26,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
    
-
 </head>
 <body>
+
+   
 
 
         <!-- Left Panel -->
@@ -192,85 +193,47 @@
 
         
 
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <h4 class="card-title mb-0">Truckload Traffic</h4>
-                                <div class="small text-muted">Jan'2018 - Present</div>
+
+
+
+            
+
+            
+          
+
+        </div> <!-- .content -->
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+                <div class="row">
+
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Rader chart </h4>
+                                    <canvas id="radarChart"></canvas>
+                                </div>
                             </div>
-                            <!--/.col-->
-                            <div class="col-sm-8 hidden-sm-down">
-                                
-                                <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
-                                    <div class="btn-group mr-3" data-toggle="buttons" aria-label="First group">
-                                        <label class="btn btn-outline-secondary">
-                                            <input type="radio" name="options" id="option1"> Day
-                                        </label>
+                        </div><!-- /# column -->
 
-                                        <label class="btn btn-outline-secondary active">
-                                            <input type="radio" name="options" id="option2" checked=""> Month
-                                        </label>
-
-                                        <label class="btn btn-outline-secondary">
-                                            <input type="radio" name="options" id="option3"> Year
-                                        </label>
-                                        
-                                    </div>
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Number Of Trucks From Different States</h4>
+                                    <canvas id="singelBarChart"></canvas>
                                 </div>
-                            </div><!--/.col-->
+                            </div>
+                        </div><!-- /# column -->
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">PCA Ratio Of Different Features</h4>
+                                    <canvas id="doughutChart"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
 
 
-                        </div><!--/.row-->
-                        <div class="chart-wrapper mt-4" >
-                            <canvas id="trafficChart" style="height:200px;" height="200"></canvas>
-                        </div>
-
-
-                    </div>
-                    <div class="card-footer">
-                        <ul>
-                            <li>
-                                <div class="text-muted">Visits</div>
-                                <strong>29.703 Users (40%)</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">Unique</div>
-                                <strong>24.093 Users (20%)</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="text-muted">Pageviews</div>
-                                <strong>78.706 Views (60%)</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">New Users</div>
-                                <strong>22.123 Users (80%)</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                            <li class="hidden-sm-down">
-                                <div class="text-muted">Bounce Rate</div>
-                                <strong>40.15%</strong>
-                                <div class="progress progress-xs mt-2" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="mb-3">Yearly Sales </h4>
@@ -287,7 +250,29 @@
                                 </div>
                             </div>
                         </div><!-- /# column -->
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Bar chart </h4>
+                                    <canvas id="barChart"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
+
                         
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Line Chart </h4>
+                                    <canvas id="lineChart"></canvas>
+                                </div>
+                            </div>
+
+                           
+                        </div><!-- /# column -->
+
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
@@ -296,6 +281,8 @@
                                 </div>
                             </div>
                         </div><!-- /# column -->
+
+
                         <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
@@ -305,80 +292,64 @@
                             </div>
                         </div><!-- /# column -->
 
+                        
 
 
-           <!-- <div class="col-xl-3 col-lg-6">
-                <section class="card">
-                    <div class="twt-feed blue-bg">
-                        <div class="corner-ribon black-ribon">
-                            <i class="fa fa-twitter"></i>
-                        </div>
-                        <div class="fa fa-twitter wtt-mark"></div>
 
-                        <div class="media">
-                            <a href="#">
-                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;" alt="" src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/images/admin.jpg">
-                            </a>
-                            <div class="media-body">
-                                <h2 class="text-white display-6">YOUR NAME</h2>
-                                <p class="text-light">Administrator</p>
-                            </div>
-                        </div>
-                    </div>
-                   
-                
-                </section>
-            </div> -->
-
-
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">Total Profit</div>
-                                <div class="stat-digit">1,012</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
+
+            </div><!-- .animated -->
+        </div><!-- .content -->
 
 
-            <div class="col-xl-3 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="stat-widget-one">
-                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
-                            <div class="stat-content dib">
-                                <div class="stat-text">New Customer</div>
-                                <div class="stat-digit">961</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="col-xl-6">
-                <div class="card" >
-                    <div class="card-header">
-                        <h4>World</h4>
-                    </div>
-                    <div class="Vector-map-js">
-                        <div id="vmap" class="vmap" style="height: 265px;"></div>
-                    </div>
-                </div>
-                <!-- /# card -->
-            </div>
-
-
-        </div> <!-- .content -->
     </div><!-- /#right-panel -->
 
     <!-- Right Panel -->
 
+    <script>
+    var ratio0 = '{{ ratio.0 }}';
+    var ratio1 = '{{ ratio.1 }}';
+    var ratio2 = '{{ ratio.2 }}';
+    var ratio3 = '{{ ratio.3 }}';
+    var ratio4 = '{{ ratio.4 }}';
+    var ratio5 = '{{ ratio.5 }}';
+    var ratio6 = '{{ ratio.6 }}';
+
+    console.log(ratio0);
+
+    </script>
+    <script>
+
+
+        var statesn0 = '{{ states.0|escapejs }}';
+        var statesn1 = '{{ states.1|escapejs }}';
+        var statesn2 = '{{ states.2|escapejs }}';
+        var statesn3 = '{{ states.3|escapejs }}';
+        var statesn4 = '{{ states.4|escapejs }}';
+        var statesn5 = '{{ states.5|escapejs }}';
+        var statesn6 = '{{ states.6|escapejs }}';
+        var statesn7 = '{{ states.7|escapejs }}';
+
+
+        var state0 = parseInt('{{ states_num.0 }}');
+
+        var state1 = parseInt('{{ states_num.1 }}');
+        var state2 = parseInt('{{ states_num.2 }}');
+        var state3 = parseInt('{{ states_num.3 }}');
+        var state4 = parseInt('{{ states_num.4 }}');
+        var state5 = parseInt('{{ states_num.5 }}');
+        var state6 = parseInt('{{ states_num.6 }}');
+        var state7 = parseInt('{{ states_num.7 }}');
+
+
+        console.log("HELLO");
+        console.log("NAMASTAY",typeof(statesn0));
+
+        console.log(states);
+        // console.log(states_num);
+
+
+    </script>
     <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/plugins.js"></script>
@@ -415,7 +386,13 @@
                 normalizeFunction: 'polynomial'
             } );
         } )( jQuery );
+
+
+
+        
+   
     </script>
+
 
 </body>
 </html>

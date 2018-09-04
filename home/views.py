@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 import pandas as pd
 import numpy as np
+import simplejson
 from time import time
 
 
@@ -289,13 +290,20 @@ def index(request):
 	print(truck_month)
 	print(truck_freq)
 
-	week1=[0,0,0,0,162,180,147]
+	week1=[108,160,136,150,162,180,147]
 	week2=[132,125,142,146,151,162,82]
-	week3=[108,160,136,147,129,0,0]
+	# week3=[108,160,136,147,129,0,0]
 
+
+	states_name = simplejson.dumps(state)
+	states_freq	= simplejson.dumps(num)
+
+	week1 = simplejson.dumps(week1)
+	week2 = simplejson.dumps(week2)
+	# week3 = simplejson.dumps(week3)
 
 	
 
-	context = {'states':state[:8], 'states_num':num[:8], 'ratio':ratio, 'week1':week1, 'week2':week1, 'week3':week1, 'week4':week1}
+	context = {'ratio':ratio, 'week1':week1, 'week2':week2, 'states_name':states_name, 'states_freq':states_freq}
 
 	return render(request, 'index.html',context)

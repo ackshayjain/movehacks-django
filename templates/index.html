@@ -210,16 +210,36 @@
             <div class="animated fadeIn">
                 <div class="row">
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="mb-3">Rader chart </h4>
+                                    <h4 class="mb-3">Radar chart </h4>
                                     <canvas id="radarChart"></canvas>
                                 </div>
                             </div>
                         </div><!-- /# column -->
 
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Weekly Truckload </h4>
+                                    <canvas id="sales-chart"></canvas>
+                                </div>
+                            </div>
+                        </div><!-- /# column -->
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-3">Line Chart </h4>
+                                    <canvas id="lineChart"></canvas>
+                                </div>
+                            </div>
+
+                           
+                        </div><!-- /# column -->
+
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="mb-3">Number Of Trucks From Different States</h4>
@@ -227,7 +247,7 @@
                                 </div>
                             </div>
                         </div><!-- /# column -->
-                        <div class="col-lg-12">
+                        <div class="col-lg-6">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="mb-3">PCA Ratio Of Different Features</h4>
@@ -237,14 +257,7 @@
                         </div><!-- /# column -->
 
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Yearly Sales </h4>
-                                    <canvas id="sales-chart"></canvas>
-                                </div>
-                            </div>
-                        </div><!-- /# column -->
+                        
 
                         <div class="col-lg-6">
                             <div class="card">
@@ -266,16 +279,7 @@
 
                         
 
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">Line Chart </h4>
-                                    <canvas id="lineChart"></canvas>
-                                </div>
-                            </div>
-
-                           
-                        </div><!-- /# column -->
+                        
 
                         <div class="col-lg-6">
                             <div class="card">
@@ -324,27 +328,12 @@
     </script>
     <script>
 
+        var states_name = {{states_name|safe}};
+        var states_freq = {{states_freq|safe}};
 
-        var statesn0 = '{{ states.0|escapejs }}';
-        var statesn1 = '{{ states.1|escapejs }}';
-        var statesn2 = '{{ states.2|escapejs }}';
-        var statesn3 = '{{ states.3|escapejs }}';
-        var statesn4 = '{{ states.4|escapejs }}';
-        var statesn5 = '{{ states.5|escapejs }}';
-        var statesn6 = '{{ states.6|escapejs }}';
-        var statesn7 = '{{ states.7|escapejs }}';
-
-
-        var state0 = parseInt('{{ states_num.0 }}');
-
-        var state1 = parseInt('{{ states_num.1 }}');
-        var state2 = parseInt('{{ states_num.2 }}');
-        var state3 = parseInt('{{ states_num.3 }}');
-        var state4 = parseInt('{{ states_num.4 }}');
-        var state5 = parseInt('{{ states_num.5 }}');
-        var state6 = parseInt('{{ states_num.6 }}');
-        var state7 = parseInt('{{ states_num.7 }}');
-
+        var week1 = {{week1|safe}};
+        var week2 = {{week2|safe}};
+        
 
         console.log("HELLO");
         console.log("NAMASTAY",typeof(statesn0));
@@ -368,8 +357,8 @@
 
     
 
-    <script src="{% static 'assets/js/lib/chart-js/Chart.bundle.js' %}"></script>
-    <script src="{% static 'assets/js/lib/chart-js/chartjs-init.js' %}"></script>
+    <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/lib/chart-js/Chart.bundle.js"></script>
+    <script src="https://s3.ap-south-1.amazonaws.com/cargoclear/static/assets/js/lib/chart-js/chartjs-init.js"></script>
 
     
 

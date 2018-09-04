@@ -49,7 +49,7 @@ def ML():
 	        if x[0] == 0:
 	            return int(x[1])
 	        else:
-	            return int(x[0])*60 + int(x[1])       
+	            return int(x[0])*60 + int(x[1])
 	    else:
 	        return None
 
@@ -80,7 +80,7 @@ def ML():
 	       if x[0] == 0:
 	           return int(x[1])
 	       else:
-	           return int(x[0])*60 + int(x[1])       
+	           return int(x[0])*60 + int(x[1])
 	   else:
 	       return None
 	y = y.apply(lambda x: j(x))
@@ -171,7 +171,7 @@ def ML():
 		variance_ratios = pd.DataFrame(np.round(ratios, 4), columns = ['Explained Variance'])
 		variance_ratios.index = dimensions
 
-		
+
 
 		# Return a concatenated DataFrame
 		return pd.concat([variance_ratios, components], axis = 1)
@@ -207,7 +207,7 @@ def ML():
 
 	y_with_date_new['In Date'].value_counts()
 
-	
+
 
 
 	y_un_dates = y_with_date_new['In Date'].unique()
@@ -289,10 +289,10 @@ def index(request):
 	print(truck_month)
 	print(truck_freq)
 
-	week1=[162,20,34,45,56,45,150]
-	week2=[32,120,4,456,56,445,150]
-	week3=[62,250,4,145,56,456,150]
-	week4=[62,230,304,345,506,45,150]
+	week1=[0,0,0,0,162,180,147]
+	week2=[132,125,142,146,151,162,82]
+	week3=[108,160,136,147,129,0,0]
+
 
 	
 

@@ -294,6 +294,8 @@ def index(request):
 	week3=[62,250,4,145,56,456,150]
 	week4=[62,230,304,345,506,45,150]
 
+	
+
 	context = {'states':state[:8], 'states_num':num[:8], 'ratio':ratio, 'week1':week1, 'week2':week1, 'week3':week1, 'week4':week1}
 
 	return render(request, 'index.html',context)
